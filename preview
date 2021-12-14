@@ -40,12 +40,19 @@ mimetype="$(file --dereference  --brief --mime-type -- "$1")"
 handle_mime(){
 #    echo "$mimetype" "$1" "$2" "$3" "$4" "$5"
     case "$mimetype" in
-        text/html) w3m -dump "$1" ;;
+        text/html)
+            [ ! -f "$CACHE" ] && \
+                wkhtmltopdf "$1" - | pdftoppm -jpeg -f 1 -singlefile - "$CACHE"
+            image "${CACHE}" "$2" "$3" "$4" "$5"
+        ;;
         text/troff) man "$1" | col -b ;;
         text/csv)
             csv-format < "$1"
             ;;
-        text/*|*/xml|*/json)
+        */json)
+            jq < "$1"
+            ;;
+        text/*|*/xml)
             if [ "$( stat --printf='%s' -- "$1" )" -gt "${HIGHLIGHT_SIZE_MAX}" ]; then
                 exit 2;
             fi
@@ -126,8 +133,6 @@ handle_mime(){
                     ;;
                 *) echo "$mimetype is not a recognized mime type."
             esac
-
-
     esac
 
 }
