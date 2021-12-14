@@ -16,18 +16,28 @@ Besides lf and Überzug you will need to install the following packages:
 * poppler
 * epub-thumbnailer
 * wkhtmltopdf
-* bat (optional - color highlight for text files)
+* mediainfo - for better positioning of images
+* bc
+* highlight (optional - color highlight for text files)
 * chafa (optional - for image preview over SSH or inside Wayland session)
-* unzip (optional - for .zip and .jar files)
 * 7z (optional - for .7z files)
+* tar (optional for .tar, gzip and bzip2 files)
+* atool (optional for xz and zip files)
 * unrar (optional - for .rar files)
+* jq (optional - for .json files)
 * catdoc (optional - for .doc files)
-* docx2txt (optional - for .docx files)
+* pandoc (optional - for .docx files)
+* nm (optional - for object (.o) files)
 * odt2txt (optional - for .odt and *.ods files)
 * gnumeric (optional - for .xls and .xlsx files)
 * exiftool (optional - for music files)
+* metaflac (optional - for flac files)
 * iso-info (optional - for .iso files)
 * transmission (optional - for .torrent files)
+* wine (optional - for DOS executables)
+* man and col (optional - for troff files)
+* my [csv-format](https://github.com/Kalelzar/dotfiles/blob/master/Code/Scripts/csv-format) script + terminaltables (optional - for .csv files)
+
 ## Installation
 
 In the project directory you can run the following command:
